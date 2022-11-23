@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Http\Livewire\MainPage::class);
 
 Route::get('/login', \App\Http\Livewire\LoginPage::class);
+
+Route::get('/register', \App\Http\Livewire\RegisterPage::class);
+
+Route::get('/dashboard', \App\Http\Livewire\Dashboard::class);

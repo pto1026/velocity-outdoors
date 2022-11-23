@@ -1,4 +1,5 @@
 <div>
+    <a class="block text-right decoration-0 text-2xl" href="/login">Log in</a>
     <button wire:click="fetch" class="block mx-auto w-12 h-8 rounded border-0 bg-indigo-600 text-white">Fetch</button>
     <div class="h-24 flex items-center justify-around text-white bg-indigo-600">
         <div>TIME</div>
