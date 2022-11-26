@@ -11,6 +11,7 @@ class LoginPage extends Component
     public $email;
     public $password;
     public $e = false;
+    public $remember = false;
 
     public function render()
     {
@@ -24,7 +25,7 @@ class LoginPage extends Component
             'password' => $this->password
         ];
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $this->remember)) {
             $request->session()->regenerate();
 
             return redirect('/dashboard');
