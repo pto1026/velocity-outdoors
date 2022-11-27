@@ -19,11 +19,11 @@ Route::get('/login', \App\Http\Livewire\LoginPage::class);
 
 Route::get('/register', \App\Http\Livewire\RegisterPage::class);
 
-Route::get('/dashboard', \App\Http\Livewire\Dashboard::class)->middleware([]);
+Route::get('/dashboard', \App\Http\Livewire\Dashboard::class)->middleware(['auth']);
 
 Route::get('/sign-out', function (\Illuminate\Http\Request $request) {
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect('/');
-});
+})->middleware(['auth']);
