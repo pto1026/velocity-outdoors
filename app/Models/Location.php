@@ -13,4 +13,9 @@ class Location extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function currentWeathers()
+    {
+        return $this->hasMany(CurrentWeather::class);
+    }
 }

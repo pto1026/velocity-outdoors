@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\MainPage::class);
 
-Route::get('/login', \App\Http\Livewire\LoginPage::class);
+Route::get('login', \App\Http\Livewire\LoginPage::class)->middleware('guest');
 
-Route::get('/register', \App\Http\Livewire\RegisterPage::class);
+Route::get('register', \App\Http\Livewire\RegisterPage::class)->middleware('guest');
 
-Route::get('/dashboard', \App\Http\Livewire\Dashboard::class)->middleware(['auth']);
+Route::get('dashboard', \App\Http\Livewire\Dashboard::class)->middleware(['auth.session']);
 
-Route::get('/sign-out', function (\Illuminate\Http\Request $request) {
+Route::get('sign-out', function (\Illuminate\Http\Request $request) {
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect('/');
-})->middleware(['auth']);
+})->middleware(['auth.session']);

@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Location::class);
     }
+
+    public function currentWeathers()
+    {
+        return $this->belongsToMany(CurrentWeather::class);
+    }
+
+    public function oneCalls()
+    {
+        return $this->belongsToMany(OneCall::class);
+    }
 }

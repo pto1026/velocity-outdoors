@@ -5,8 +5,9 @@
                 <span class="block">Ready to dive in?</span>
                 <span class="block text-indigo-600">See the weather that matters to you.</span>
             </h2>
-            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-
+            <div class="mt-8 lg:mt-0 lg:flex lg:flex-shrink-0 lg:items-center">
+                <livewire:styled-input class="mb-4" label="Find weather" :value="$search" />
+                <button wire:click="searchLocation" class="block items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Search</button>
             </div>
         </div>
     </div>
