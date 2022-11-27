@@ -41,4 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function locations()
+    {
+        return $this->belongsToMany(Location::class);
+    }
+
+    public function currentWeathers()
+    {
+        return $this->belongsToMany(CurrentWeather::class);
+    }
+
+    public function oneCalls()
+    {
+        return $this->belongsToMany(OneCall::class);
+    }
 }

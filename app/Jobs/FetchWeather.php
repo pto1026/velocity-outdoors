@@ -40,6 +40,5 @@ class FetchWeather implements ShouldQueue
         $weather->wind_speed = $data['wind']['speed'];
         $weather->humidity = $data['main']['humidity'];
         $weather->save();
-
     }
 }

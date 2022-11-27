@@ -14,6 +14,7 @@ class MainPage extends Component
     {
         $data = Weather::all();
         $this->data = $data->sortByDesc('id')->values();
+
     }
 
     public function fetch()
