@@ -25,6 +25,7 @@ class LoginPage extends Component
             'password' => $this->password
         ];
 
+
         if (Auth::attempt($credentials, $this->remember)) {
             $request->session()->regenerate();
 
