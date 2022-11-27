@@ -4,18 +4,29 @@
             <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                  alt="Your Company">
             <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Reset your password</h2>
-            <p class="mt-2 text-center text-sm text-gray-600">
-                Or
-                <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500">register today</a>
-            </p>
         </div>
         <form class="mt-8 space-y-6" action="#" method="POST" wire:submit.prevent="submit">
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
                     <label for="email-address" class="sr-only">Email address</label>
                     <input id="email-address" name="email" type="email" autocomplete="email" required
-                           class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                           class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                            placeholder="Email address" wire:model.lazy="email">
+                    @error('email') <span class="text-red-700 font-bold flex justify-center items-center">{{ $message }}</span>@enderror
+                </div>
+                <div>
+                    <label for="password" class="sr-only">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                           class="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                           placeholder="Password" wire:model="password">
+                    @error('password') <span class="text-red-700 font-bold flex justify-center items-center">{{ $message }}</span>@enderror
+                </div>
+                <div>
+                    <label for="confirm" class="sr-only">Confirm Password</label>
+                    <input id="confirm" name="confirm" type="password" required
+                           class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                           placeholder="Confirm Password" wire:model="confirm">
+                    @error('confirm') <span class="text-red-700 font-bold flex justify-center items-center">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div>
@@ -30,7 +41,7 @@
                     clip-rule="evenodd"/>
             </svg>
           </span>
-                    Send Reset Link
+                    Reset Password
                 </button>
             </div>
         </form>
